@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Add new image</div>
+    <div><input type="file" id="image"></div>
+    <div><button id="add-button">Add image to collection</button></div>
+    <script>
+        document.querySelector('#add-button').addEventListener('click', function () {
+            // This is the file user has chosen
+            var formData = new FormData();
+            var imagefile = document.querySelector('#image');
+            formData.append("image", imagefile.files[0]);
+            axios.post('upload-image', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

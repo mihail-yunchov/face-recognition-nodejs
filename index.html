@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            padding:0;
+            margin: 0;
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            color: red;
+            text-align: center;
+            font-size: 30px;
+            padding-top: 50vh;
+            cursor: pointer;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 10000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="upload-btn-wrapper">
+        <div class="btn">Capture image</button>
+            <input type="file" id="recognize" accept="image/*" capture="capture">
+        </div>
+
+        <script>
+            document.querySelector('#recognize').addEventListener('change', function () {
+                // This is the file user has chosen
+                var formData = new FormData();
+                var imagefile = document.querySelector('#recognize');
+                formData.append("image", imagefile.files[0]);
+                axios.post('recognize', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(function () {
+                    alert('succesfully matched');
+                }, function (err) {
+                    alert('No match');
+                }
+                )
+            });
+        </script>
+</body>
+
+</html>
