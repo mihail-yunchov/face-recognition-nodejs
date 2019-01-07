@@ -11,6 +11,10 @@ var collectionFaces = 'collectionFaces';
 
 var rekognition = new AWS.Rekognition();
 rekognition.listCollections({}, function (err, data) {
+    if (err) {
+        console.log(err);
+        return;
+    }
     if (data.CollectionIds.indexOf(collectionFaces) === -1) {
         rekognition.createCollection({ CollectionId: collectionFaces }, function (err, data) {
             console.log(err, data);
