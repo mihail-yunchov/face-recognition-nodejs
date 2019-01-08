@@ -6,6 +6,7 @@ var AWS = require('aws-sdk');
 AWS.config.region = 'eu-west-1';
 var multiMiddleware = multiparty();
 var fs = require('fs');
+var id = req.query.id; // $_GET["id"]
 
 var collectionFaces = 'collectionFaces';
 
@@ -29,10 +30,6 @@ app.get('/', function (req, res) {
 
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname + '/admin.html'));
-});
-
-app.get('/', function(req, res){
-  res.send('id: ' + req.query.id);
 });
 
 app.post('/upload-image', multiMiddleware, function (req, res) {
