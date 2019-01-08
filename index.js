@@ -6,7 +6,6 @@ var AWS = require('aws-sdk');
 AWS.config.region = 'eu-west-1';
 var multiMiddleware = multiparty();
 var fs = require('fs');
-var id = req.query.id; // $_GET["id"]
 
 var collectionFaces = 'collectionFaces';
 
