@@ -60,7 +60,8 @@
                         'Content-Type': 'multipart/form-data'
                     }
                 }).then(function () {
-                    alert('succesfully matched');
+					//instead of alert we have to redirect to: 
+                    alert('succesfully matched' + id);
                 }, function (err) {
                     alert('No match');
                 }

@@ -85,7 +85,7 @@ app.post('/recognize', multiMiddleware, function (req, res) {
 app.get("/",function(req,res){
 	var id = req.query.id;
 	//further operations to perform
-	response.end("I have received the ID: " + id);
+	response.end('I have received the ID: ' + id);
 });
 var port = process.env.PORT || 8080;
 console.log('start listeing on' + port);
