@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname + '/admin.html'));
 });
-
+				
 app.post('/upload-image', multiMiddleware, function (req, res) {
   var file = req.files.image;
 
@@ -82,6 +82,11 @@ app.post('/recognize', multiMiddleware, function (req, res) {
     })
   });
 })
+app.get("/",function(req,res){
+	var id = req.query.id;
+	//further operations to perform
+	response.end("I have received the ID: " + id);
+});
 var port = process.env.PORT || 8080;
 console.log('start listeing on' + port);
 app.listen(port);
