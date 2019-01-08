@@ -60,11 +60,6 @@
                         'Content-Type': 'multipart/form-data'
                     }
                 }).then(function () {
-					app.get("/",function(req,res){
-						var id = req.query.id;
-						//further operations to perform
-						alert('succesfully matched' + id);
-					});
 					//instead of alert we have to redirect to: 
                     alert('succesfully matched' + id);
                 }, function (err) {
