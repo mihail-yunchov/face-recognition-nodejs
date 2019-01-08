@@ -54,6 +54,7 @@
                 // This is the file user has chosen
                 var formData = new FormData();
                 var imagefile = document.querySelector('#recognize');
+				var id = req.query.id; // $_GET["id"]
                 formData.append("image", imagefile.files[0]);
                 axios.post('recognize', formData, {
                     headers: {

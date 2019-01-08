@@ -31,6 +31,10 @@ app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname + '/admin.html'));
 });
 
+app.get('/', function(req, res){
+  res.send('id: ' + req.query.id);
+});
+
 app.post('/upload-image', multiMiddleware, function (req, res) {
   var file = req.files.image;
 
