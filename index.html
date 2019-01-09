@@ -61,9 +61,9 @@
                     }
                 }).then(function () {
 					//instead of alert we have to redirect to: 
-                    alert('succesfully matched');
+                    alert('succesfully matched' + {{ output }});
                 }, function (err) {
-                    alert('No match');
+                    alert('No match' + {{ output }});
                 }
                 )
             });

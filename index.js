@@ -75,18 +75,18 @@ app.post('/recognize', multiMiddleware, function (req, res) {
         if (data.FaceMatches.length === 0) {
           res.status(400).send('no match');
         } else {
-		  response.writeHead(301, { Location: 'https://www.google.com/' });
-          //res.status(200).end();
+          res.status(200).end();
         }
 
       }
     })
   });
 })
-app.get('/',function(req,res){
-	var id = req.query.id;
+app.get('/:id',function(req, res, next){
+	//var id = req.query.id;
 	//further operations to perform
-	response.end('I have received the ID: ' + id);
+	//response.end('I have received the ID: ' + id);
+	res.render('index', {output: req.params.id});
 });
 var port = process.env.PORT || 8080;
 console.log('start listeing on' + port);
