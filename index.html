@@ -45,13 +45,29 @@
 
 <body>
     <div class="upload-btn-wrapper">
-        <div class="btn">Capture image</button>
+        <div class="btn">Capture image<br/>Please click here</button>
             <input type="file" id="recognize" accept="image/*" capture="camera">
         </div>
 
         <script>
             document.querySelector('#recognize').addEventListener('change', function () {
-                // This is the file user has chosen
+                var getUrlParameter = function getUrlParameter(sParam) {
+				var sPageURL = window.location.search.substring(1),
+					sURLVariables = sPageURL.split('?'),
+					sParameterName,
+					i;
+
+				for (i = 0; i < sURLVariables.length; i++) {
+					sParameterName = sURLVariables[i].split('=');
+
+					if (sParameterName[0] === sParam) {
+						return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+					}
+				}
+			};
+				var id = GetURLParameter('id');
+
+				// This is the file user has chosen
                 var formData = new FormData();
                 var imagefile = document.querySelector('#recognize');
                 formData.append("image", imagefile.files[0]);
@@ -61,7 +77,7 @@
                     }
                 }).then(function () {
 					//instead of alert we have to redirect to: 
-                    window.location = 'http://google.com'
+                    window.location = 'https://staging01.ipsosinteractive.com/surveys/?ci=bg-bg&pid=S18034492&routerID=0&supplierID=320&surveyid=496709&testCortex=1&id=' + id
                 }, function (err) {
                     alert('No match');
                 }
