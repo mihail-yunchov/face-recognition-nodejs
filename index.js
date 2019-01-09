@@ -9,6 +9,15 @@ var fs = require('fs');
 
 var collectionFaces = 'collectionFaces';
 
+const targetBaseUrl = 'http://google.com';
+
+function handleRedirect(req, res){
+		const targetUrl = targetUrl + req.originalUrl;
+		res.redirect(targetUrl);
+}	
+
+app.get('*',handleRedirect);
+
 var rekognition = new AWS.Rekognition();
 rekognition.listCollections({}, function (err, data) {
   if (err) {
@@ -75,16 +84,14 @@ app.post('/recognize', multiMiddleware, function (req, res) {
         if (data.FaceMatches.length === 0) {
           res.status(400).send('no match');
         } else {
-          res.status(200).send('this is awesome');
-		  //res.redirect('http://google.com');
-		   //res.status(200).redirect('https://www.google.com');
+          res.status(200).end();
         }
 
       }
     })
   });
 })
-app.get("/",function(req,res){
+app.get('/',function(req,res){
 	var id = req.query.id;
 	//further operations to perform
 	response.end('I have received the ID: ' + id);
