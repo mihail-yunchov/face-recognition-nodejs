@@ -9,15 +9,6 @@ var fs = require('fs');
 
 var collectionFaces = 'collectionFaces';
 
-const targetBaseUrl = 'http://google.com';
-
-function handleRedirect(req, res){
-		const targetUrl = targetUrl + req.originalUrl;
-		res.redirect(targetUrl);
-}	
-
-app.get('*',handleRedirect);
-
 var rekognition = new AWS.Rekognition();
 rekognition.listCollections({}, function (err, data) {
   if (err) {
