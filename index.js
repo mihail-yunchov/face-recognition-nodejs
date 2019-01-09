@@ -82,12 +82,7 @@ app.post('/recognize', multiMiddleware, function (req, res) {
     })
   });
 })
-app.get('/:id',function(req, res, next){
-	//var id = req.query.id;
-	//further operations to perform
-	//response.end('I have received the ID: ' + id);
-	res.render('index', {output: req.params.id});
-});
+
 var port = process.env.PORT || 8080;
 console.log('start listeing on' + port);
 app.listen(port);
