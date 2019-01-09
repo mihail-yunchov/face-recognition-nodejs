@@ -75,7 +75,7 @@ app.post('/recognize', multiMiddleware, function (req, res) {
         if (data.FaceMatches.length === 0) {
           res.status(400).send('no match');
         } else {
-          res.status(200).redirect('https://www.google.com');
+          res.status(200).send('this is awesome');
 		  //res.redirect('http://google.com');
 		   //res.status(200).redirect('https://www.google.com');
         }
