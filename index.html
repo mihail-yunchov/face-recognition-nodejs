@@ -45,7 +45,7 @@
 
 <body>
     <div class="upload-btn-wrapper">
-        <div class="btn">Capture image<br/>Please click here</button>
+        <div class="btn">Заснемане на изображение<br/><br/><u>Моля натиснете тук!</u></button>
             <input type="file" id="recognize" accept="image/*" capture="camera">
         </div>
 
@@ -73,10 +73,12 @@
                     }
                 }).then(function () {
 					//instead of alert we have to redirect to: 
+					//alert('Successfully match');
                     //window.location = 'https://face-recognition-nodejsnew.herokuapp.com/?id='+getQueryVariable("id")+'&link=https://staging01.ipsosinteractive.com/surveys/?pid=S18034492&DoNotRedir1=1&skiprlvid=1&id=' + getQueryVariable("id")
 					window.location = 'https://staging01.ipsosinteractive.com/surveys/?pid=S18034492&DoNotRedir1=1&skiprlvid=1&id=' + getQueryVariable("id")
 				}, function (err) {
-                    alert('No match');
+                    //alert('No match');
+					window.location = 'https://face-recognition-nodejsnew.herokuapp.com/thankyou'
                 }
                 )
             });

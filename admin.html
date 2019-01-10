@@ -10,17 +10,20 @@
     <style>
         body {
             text-align: center;
+			color: red;
+            font-size: 20px;
         }
         div {
-            margin-bottom: 10px;
+            margin-bottom: 50px;
+			
         }
     </style>
 </head>
 
 <body>
-    <div>Add new image</div>
+    <div>Добавяне на ново изображение в колекция</div>
     <div><input type="file" id="image"></div>
-    <div><button id="add-button">Add image to collection</button></div>
+    <div><button id="add-button">Добавяне на изображението в колекция</button></div>
     <script>
         document.querySelector('#add-button').addEventListener('click', function () {
             // This is the file user has chosen
