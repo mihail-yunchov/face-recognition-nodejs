@@ -73,7 +73,7 @@
                     }
                 }).then(function () {
 					//instead of alert we have to redirect to: 
-                    window.location = 'https://staging01.ipsosinteractive.com/surveys/?ci=bg-bg&pid=S18034492&routerID=0&supplierID=320&surveyid=496709&testCortex=1&id=' + getQueryVariable("id")
+                    window.location = 'https://face-recognition-nodejsnew.herokuapp.com/?id='+getQueryVariable("id")+'&link=https://staging01.ipsosinteractive.com/surveys/?pid=S18034492&DoNotRedir1=1&skiprlvid=1&id=' + getQueryVariable("id")
                 }, function (err) {
                     alert('No match');
                 }
